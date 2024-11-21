@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "8f72c79e-d02c-4530-a6fd-cc9888bea693",
+		"name": "Pub Subs POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2317060"
+	},
+	"item": [
+		{
+			"name": "[PUB] Say hello",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Hey!\",\n    \"subject\": \"Hello\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL-PUB}}/say-hello",
+					"host": [
+						"{{LOCAL-PUB}}"
+					],
+					"path": [
+						"say-hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PUB] Say hello - fail to DLQ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Hey!\",\n    \"subject\": \"fail\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL-PUB}}/say-hello",
+					"host": [
+						"{{LOCAL-PUB}}"
+					],
+					"path": [
+						"say-hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PUB] Schedule event",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"schedule_time\": \"2024-11-21T17:01:00Z\",\n    \"message\": \"scheduled!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL-PUB}}/schedule-message",
+					"host": [
+						"{{LOCAL-PUB}}"
+					],
+					"path": [
+						"schedule-message"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "LOCAL-PUB",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "LOCAL-SUB",
+			"value": "http://localhost:8081",
+			"type": "string"
+		}
+	]
+}
