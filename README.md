@@ -45,15 +45,18 @@ This project is a Pub Service application that uses Terraform for infrastructure
   AWS_SECRET_ACCESS_KEY=your_secret_access_key
   AWS_DEFAULT_REGION=your_aws_region
   ```
+  4. **Check for existing resources**
 
-4. **Apply the Terraform configuration**
+    If the resources are already available and created on AWS, ask the administrator for the `terraform.tfstate` file and place it into the `iac` folder.
 
-  Initialize Terraform and apply the configuration.
+  5. **Apply the Terraform configuration**
 
-  ```sh
-  terraform init
-  terraform apply
-  ```
+    Initialize Terraform and apply the configuration.
+
+    ```sh
+    terraform init
+    terraform apply
+    ```
 
 ## Usage
 

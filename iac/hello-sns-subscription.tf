@@ -9,7 +9,7 @@ resource "aws_sns_topic_subscription" "hello_active_http_subscription" {
 
   delivery_policy = jsonencode({
     healthyRetryPolicy: {
-      numRetries       : 2,       # Retry up to 5 times
+      numRetries       : 2,       # Retry up to 2 times
       minDelayTarget   : 2,       # Minimum delay of 2 seconds
       maxDelayTarget   : 10,      # Maximum delay of 10 seconds
       numMaxDelayRetries : 1,     # Retry 1 time at max delay
